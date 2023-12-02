@@ -1,8 +1,8 @@
-(defpackage beetleman.aoc-2023/tests/main
+(defpackage beetleman.aoc-2023/tests/day-1
   (:use :cl
-        :beetleman.aoc-2023
+        :beetleman.aoc-2023.day-1
         :rove))
-(in-package :beetleman.aoc-2023/tests/main)
+(in-package :beetleman.aoc-2023/tests/day-1)
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :beetleman.aoc-2023)' in your Lisp.
 
@@ -12,6 +12,6 @@ pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet")
 
-(deftest test-target-1
-  (testing "calibration book should be solved"
+(deftest solve-test
+  (testing "Day 1: Trebuchet?!"
     (ok (= 142 (solve calibration-document)))))

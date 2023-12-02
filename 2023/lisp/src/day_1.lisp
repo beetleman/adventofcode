@@ -1,7 +1,7 @@
-(defpackage beetleman.aoc-2023
+(defpackage beetleman.aoc-2023.day-1
   (:use :cl)
   (:export :solve))
-(in-package :beetleman.aoc-2023)
+(in-package :beetleman.aoc-2023.day-1)
 
 (defvar re-numbers (ppcre:create-scanner "\\d+"))
 
