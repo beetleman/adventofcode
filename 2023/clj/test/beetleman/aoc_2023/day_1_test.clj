@@ -9,5 +9,6 @@ a1b2c3d4e5f
 treb7uchet")
 
 (t/deftest solve-test
-  (t/is (= 142
-           (sut/solve calibration-document))))
+  (t/testing "Day 1: Trebuchet?!"
+    (t/is (= 142
+             (sut/solve calibration-document)))))
