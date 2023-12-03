@@ -5,6 +5,7 @@
 
 (defvar re-numbers (ppcre:create-scanner "\\d+"))
 
+
 (defun solve (calibration-document)
   (reduce '+
 	  (loop for line in (ppcre:split "\\n" calibration-document)

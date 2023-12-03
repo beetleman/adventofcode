@@ -2,7 +2,8 @@
   :version "0.0.1"
   :author ""
   :license ""
-  :depends-on ("cl-ppcre")
+  :depends-on ("cl-ppcre"
+	       "alexandria")
   :components ((:module "src"
                 :components
                 ((:file "day_1")
