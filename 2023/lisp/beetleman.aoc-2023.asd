@@ -3,11 +3,13 @@
   :author ""
   :license ""
   :depends-on ("cl-ppcre"
-	       "alexandria")
+	       "alexandria"
+	       "serapeum")
   :components ((:module "src"
                 :components
                 ((:file "day_1")
-		 (:file "day_2"))))
+		 (:file "day_2")
+		 (:file "day_3"))))
   :description ""
   :in-order-to ((test-op (test-op "beetleman.aoc-2023/tests"))))
 
@@ -19,6 +21,7 @@
   :components ((:module "tests"
                 :components
                 ((:file "day_1")
-		 (:file "day_2"))))
+		 (:file "day_2")
+		 (:file "day_3"))))
   :description "Test system for beetleman.aoc-2023"
   :perform (test-op (op c) (symbol-call :rove :run c)))
