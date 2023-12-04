@@ -9,7 +9,8 @@
                 :components
                 ((:file "day_1")
 		 (:file "day_2")
-		 (:file "day_3"))))
+		 (:file "day_3")
+		 (:file "day_4"))))
   :description ""
   :in-order-to ((test-op (test-op "beetleman.aoc-2023/tests"))))
 
@@ -22,6 +23,7 @@
                 :components
                 ((:file "day_1")
 		 (:file "day_2")
-		 (:file "day_3"))))
+		 (:file "day_3")
+		 (:file "day_4"))))
   :description "Test system for beetleman.aoc-2023"
   :perform (test-op (op c) (symbol-call :rove :run c)))
