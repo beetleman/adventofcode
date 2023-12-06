@@ -28,7 +28,7 @@
 		return T))))
 
 (defun solve (engine-schematic)
-  (let ((width (engine-schemati-width engine-schematic))
+  (let ((width (engine-schematic-width engine-schematic))
 	(counter 0))
     (ppcre:do-matches (start end "\\d+" engine-schematic)
       (when (symbol-attached-p width engine-schematic start end)
@@ -37,7 +37,7 @@
     counter))
 
 (defun solve-serapeum (engine-schematic)
-  (let ((width (engine-schemati-width engine-schematic))
+  (let ((width (engine-schematic-width engine-schematic))
 	(matches (serapeum:batches (ppcre:all-matches "\\d+" engine-schematic) 2)))
     (loop for (start end) in matches
 	  when (symbol-attached-p width engine-schematic start end)
