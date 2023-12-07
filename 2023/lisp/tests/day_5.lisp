@@ -2,8 +2,7 @@
   (:use :cl
         :beetleman.aoc-2023.day-5
         :rove)
-  (:export :cards
-	   :almanac))
+  (:export :almanac))
 (in-package :beetleman.aoc-2023/tests/day-5)
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :beetleman.aoc-2023)' in your Lisp.
