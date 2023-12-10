@@ -17,4 +17,6 @@ QQQJA 483")
 (deftest solve-test
   (testing "Day 7: Camel Cards"
     (ok (= 6440
-	   (solve camel-cards)))))
+	   (solve camel-cards)))
+    (ok (= 251136060
+	   (solve (alexandria:read-file-into-string #P"tests/day_7_input.txt"))))))
