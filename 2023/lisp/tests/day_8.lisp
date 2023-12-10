@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023/tests/day-8
   (:use :cl
         :beetleman.aoc-2023.day-8
+        :beetleman.aoc-2023/tests/io
         :rove)
   (:export :camel-cards))
 (in-package :beetleman.aoc-2023/tests/day-8)
@@ -19,4 +20,4 @@ ZZZ = (ZZZ, ZZZ)")
     (ok (= 6
 	   (solve network)))
     (ok (= 13939
-     	   (solve (alexandria:read-file-into-string #P"tests/day_8_input.txt"))))))
+     	   (solve (read-file "tests/day_8_input.txt"))))))

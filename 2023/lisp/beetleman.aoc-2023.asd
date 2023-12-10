@@ -25,7 +25,8 @@
                "rove")
   :components ((:module "tests"
                 :components
-                ((:file "day_1")
+                ((:file "io")
+		 (:file "day_1")
 		 (:file "day_2")
 		 (:file "day_3")
 		 (:file "day_4")
