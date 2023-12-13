@@ -14,7 +14,13 @@
 
 (deftest solve-test
   (testing "Day 9: Mirage Maintenance"
-    (ok (= 114
-	   (solve sensors-data)))
-    (ok (= 2174807968
-     	   (solve (read-file "tests/day_9_input.txt"))))))
+    (testing "part-1"
+      (ok (= 114
+	     (solve-1 sensors-data)))
+      (ok (= 2174807968
+	     (solve-1 (read-file "tests/day_9_input_part_1.txt")))))
+    (testing "part-2"
+      (ok (= 2
+	     (solve-2 sensors-data)))
+      (ok (= 1208
+	     (solve-2 (read-file "tests/day_9_input_part_2.txt")))))))

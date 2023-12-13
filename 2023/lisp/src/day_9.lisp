@@ -3,7 +3,8 @@
   (:import-from :ppcre)
   (:import-from :alexandria)
   (:import-from :serapeum)
-  (:export :solve))
+  (:export :solve-1
+	   :solve-2))
 (in-package :beetleman.aoc-2023.day-9)
 
 (defun deltas (sensor-data)
@@ -25,6 +26,10 @@
 	:collect (mapcar #'parse-integer
 			 (ppcre:all-matches-as-strings "[-]?\\d+" line))))
 
-(defun solve (sensors-data-string)
+(defun solve-1 (sensors-data-string)
   (loop :for sensor-data :in (parse sensors-data-string)
 	:sum (predict-reading sensor-data)))
+
+(defun solve-2 (sensors-data-string)
+  (loop :for sensor-data :in (parse sensors-data-string)
+	:sum (predict-reading (reverse sensor-data))))
