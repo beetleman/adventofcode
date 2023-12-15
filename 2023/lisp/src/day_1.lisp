@@ -1,12 +1,11 @@
 (defpackage beetleman.aoc-2023.day-1
   (:use :cl)
-  (:export :solve))
+  (:export :solve-1))
 (in-package :beetleman.aoc-2023.day-1)
 
-(defvar re-numbers (ppcre:create-scanner "\\d+"))
+(defparameter re-numbers (ppcre:create-scanner "\\d"))
 
-
-(defun solve (calibration-document)
+(defun solve-1 (calibration-document)
   (reduce '+
 	  (loop for line in (ppcre:split "\\n" calibration-document)
 		collect (let ((numbers (ppcre:all-matches-as-strings re-numbers line)))

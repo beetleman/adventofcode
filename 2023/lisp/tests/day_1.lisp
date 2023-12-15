@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023/tests/day-1
   (:use :cl
         :beetleman.aoc-2023.day-1
+        :beetleman.aoc-2023/tests/io
         :rove))
 (in-package :beetleman.aoc-2023/tests/day-1)
 
@@ -14,4 +15,6 @@ treb7uchet")
 
 (deftest solve-test
   (testing "Day 1: Trebuchet?!"
-    (ok (= 142 (solve calibration-document)))))
+    (testing "part-1"
+      (ok (= 142 (solve calibration-document)))
+      (ok (= 55002 (solve (read-file "tests/day_1_input_part_1.txt")))))))
