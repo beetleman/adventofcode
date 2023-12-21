@@ -15,8 +15,8 @@
     (parse-integer (elt value 0))))
 
 (defun game-scores (game-string)
-  (loop for p in (ppcre:split ";" game-string)
-	collect
+  (loop :for p :in (ppcre:split ";" game-string)
+	:collect
 	(let ((vals '()))
 	  (ppcre:do-register-groups
 	      (number color)
@@ -35,7 +35,7 @@
 	     scores)))
 
 (defun solve (records all-cubes)
-  (loop for game-string in (split-lines records)
-	for scores = (game-scores game-string)
-	when (ok-p scores all-cubes)
-	  sum (game-id game-string)))
+  (loop :for game-string :in (split-lines records)
+	:for scores = (game-scores game-string)
+	:when (ok-p scores all-cubes)
+	  :sum (game-id game-string)))

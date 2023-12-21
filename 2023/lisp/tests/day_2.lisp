@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023/tests/day-2
   (:use :cl
         :beetleman.aoc-2023.day-2
+        :beetleman.aoc-2023/tests/io
         :rove))
 (in-package :beetleman.aoc-2023/tests/day-2)
 
@@ -15,4 +16,6 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green")
 
 (deftest solve-test
   (testing "Day 2: Cube Conundrum"
-    (ok (= 8 (solve records '(:red 12 :green 13 :blue 14))))))
+    (ok (= 8 (solve records '(:red 12 :green 13 :blue 14))))
+    (ok (= 260 (solve (read-file "tests/day_2_input_part_1.txt")
+		      '(:red 12 :green 13 :blue 14))))))
