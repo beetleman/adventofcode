@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023.day-2
   (:use :cl)
-  (:export :solve))
+  (:export :solve-1
+           :solve-2))
 (in-package :beetleman.aoc-2023.day-2)
 
 (defun split-lines (s)
@@ -34,8 +35,22 @@
 		   (not-possible-score-p score all-cubes :green)))
 	     scores)))
 
-(defun solve (records all-cubes)
+(defun min-set (scores key)
+  (reduce
+   (lambda (acc x)
+     (max (getf x key 0) acc))
+   scores
+   :initial-value 0))
+
+(defun solve-1 (records all-cubes)
   (loop :for game-string :in (split-lines records)
 	:for scores = (game-scores game-string)
 	:when (ok-p scores all-cubes)
 	  :sum (game-id game-string)))
+
+(defun solve-2 (records)
+  (loop :for game-string :in (split-lines records)
+	:for scores = (game-scores game-string)
+	:sum (* (min-set scores :red)
+                (min-set scores :blue)
+		(min-set scores :green))))

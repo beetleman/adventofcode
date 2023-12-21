@@ -16,6 +16,10 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green")
 
 (deftest solve-test
   (testing "Day 2: Cube Conundrum"
-    (ok (= 8 (solve records '(:red 12 :green 13 :blue 14))))
-    (ok (= 260 (solve (read-file "tests/day_2_input_part_1.txt")
-		      '(:red 12 :green 13 :blue 14))))))
+    (testing "part-1"
+      (ok (= 8 (solve-1 records '(:red 12 :green 13 :blue 14))))
+      (ok (= 2600 (solve-1 (read-file "tests/day_2_input_part_1.txt")
+			   '(:red 12 :green 13 :blue 14)))))
+    (testing "part-2"
+      (ok (= 2286 (solve-2 records)))
+      (ok (= 2600 (solve-2 (read-file "tests/day_2_input_part_2.txt")))))))
