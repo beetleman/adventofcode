@@ -22,4 +22,4 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green")
 			   '(:red 12 :green 13 :blue 14)))))
     (testing "part-2"
       (ok (= 2286 (solve-2 records)))
-      (ok (= 2600 (solve-2 (read-file "tests/day_2_input_part_2.txt")))))))
+      (ok (= 86036 (solve-2 (read-file "tests/day_2_input_part_2.txt")))))))

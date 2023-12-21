@@ -30,4 +30,4 @@ zoneight234
     (testing "part-2"
       (ok (= 142 (solve-2 calibration-document-1)))
       (ok (= 281 (solve-2 calibration-document-2)))
-      (ok (= 0 (solve-2 (read-file "tests/day_1_input_part_2.txt")))))))
+      (ok (= 55093 (solve-2 (read-file "tests/day_1_input_part_2.txt")))))))
