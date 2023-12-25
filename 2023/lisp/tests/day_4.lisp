@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023/tests/day-4
   (:use :cl
         :beetleman.aoc-2023.day-4
+        :beetleman.aoc-2023/tests/io
         :rove)
   (:export :cards))
 (in-package :beetleman.aoc-2023/tests/day-4)
@@ -17,4 +18,6 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11")
 
 (deftest solve-test
   (testing "Day 4: Scratchcards"
-    (ok (= 13 (solve cards)))))
+    (testing "part-1"
+      (ok (= 13 (solve-1 cards)))
+      (ok (= 23847 (solve-1 (read-file "tests/day_4_input_part_1.txt")))))))
