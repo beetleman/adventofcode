@@ -1,6 +1,7 @@
 (defpackage beetleman.aoc-2023/tests/day-3
   (:use :cl
         :beetleman.aoc-2023.day-3
+        :beetleman.aoc-2023/tests/io
         :rove))
 (in-package :beetleman.aoc-2023/tests/day-3)
 
@@ -16,9 +17,12 @@
 ..592.....
 ......755.
 ...$.*....
-.664.598..")
+.664.598..
+")
 
 (deftest solve-test
   (testing "Day 3: Gear Ratios"
-    (ok (= 4361 (solve engine-schematic)))
-    (ok (= 4361 (solve-serapeum engine-schematic)))))
+    (testing "part-1"
+      (ok (= 4361 (solve-1 engine-schematic)))
+      (ok (= 4361 (solve-1-serapeum engine-schematic)))
+      (ok (= 528819 (solve-1-serapeum (read-file "tests/day_3_input_part_1.txt")))))))

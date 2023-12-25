@@ -1,7 +1,7 @@
 (defpackage beetleman.aoc-2023.day-3
   (:use :cl)
-  (:export :solve
-	   :solve-serapeum))
+  (:export :solve-1
+	   :solve-1-serapeum))
 (in-package :beetleman.aoc-2023.day-3)
 
 (defun engine-schematic-width (engine-schematic)
@@ -13,21 +13,23 @@
     nil
     (let ((ch (char engine-schematic idx)))
       (not (or (digit-char-p ch)
-               (eql ch #\.))))))
+               (eql ch #\.)
+	       (eql ch #\newline))))))
 
 (defun symbol-attached-p (width engine-schematic start end)
   (flet ((the-engine-symbol-p (idx) (engine-symbol-p engine-schematic idx)))
     (or (the-engine-symbol-p (1- start)) ;; symbol before number
 	(the-engine-symbol-p end) ;; symbol after number
 	;; line before number
-	(loop for idx from (- start width 2) to (- end width 1)
-	      when (the-engine-symbol-p idx)
-		return T)
-	(loop for idx from (+ start width) to (+ end width 1)
-	      when (the-engine-symbol-p idx)
-		return T))))
+	(loop :for idx :from (- start width 2) :below (- end width)
+	      :when (the-engine-symbol-p idx)
+		:return T)
+	;; lines after number
+	(loop :for idx from (+ start width) :below (+ end width 2)
+	      :when (the-engine-symbol-p idx)
+		:return T))))
 
-(defun solve (engine-schematic)
+(defun solve-1 (engine-schematic)
   (let ((width (engine-schematic-width engine-schematic))
 	(counter 0))
     (ppcre:do-matches (start end "\\d+" engine-schematic)
@@ -36,9 +38,9 @@
 			 (parse-integer (subseq engine-schematic start end))))))
     counter))
 
-(defun solve-serapeum (engine-schematic)
+(defun solve-1-serapeum (engine-schematic)
   (let ((width (engine-schematic-width engine-schematic))
 	(matches (serapeum:batches (ppcre:all-matches "\\d+" engine-schematic) 2)))
-    (loop for (start end) in matches
-	  when (symbol-attached-p width engine-schematic start end)
-	    sum (parse-integer (subseq engine-schematic start end)))))
+    (loop :for (start end) :in matches
+	  :when (symbol-attached-p width engine-schematic start end)
+	    :sum (parse-integer (subseq engine-schematic start end)))))
