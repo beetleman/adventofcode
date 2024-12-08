@@ -12,7 +12,8 @@
    :diagonal
    :adiagonal
    :words->char-list
-   :char-list->words))
+   :char-list->words
+   :nth2))
 (in-package #:adventofcode-2024/util)
 
 (defun split-lines (s)
@@ -62,3 +63,6 @@
 
 (defun char-list->words (char-list)
   (loop :for c :in char-list :collect (coerce c 'string)))
+
+(defmacro nth2 (x y l)
+  `(nth ,y (nth ,x ,l)))
