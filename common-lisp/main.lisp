@@ -1,0 +1,10 @@
+(defpackage #:adventofcode-2024
+  (:nicknames #:adventofcode-2024/main)
+  (:use :cl)
+  (:import-from :adventofcode-2024/day-1)
+  (:import-from :adventofcode-2024/day-2)
+  (:import-from :adventofcode-2024/day-3)
+  (:import-from :adventofcode-2024/day-4)
+  (:import-from :adventofcode-2024/day-5)
+  (:import-from :adventofcode-2024/day-6))
+(in-package #:adventofcode-2024)
