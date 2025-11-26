@@ -1,0 +1,25 @@
+* Advent of Code
+
+Welcome to my Advent of Code repository! This repo contains my solutions to the Advent of Code challenges.
+
+** Structure
+
+- Each year's solutions are organized into separate branches.
+- For example, the solutions for the 2023 challenges can be found in the =2023= branch.
+
+** How to Use
+
+1. *Clone the Repository*
+   #+begin_src bash
+   git clone https://github.com/yourusername/advent-of-code.git
+   #+end_src
+
+2. *Switch to the Desired Year Branch*
+   #+begin_src bash
+   git checkout 2023
+   #+end_src
+
+3. *Explore the Solutions*
+   - Each problem is contained in its respective file within the branch.
+
+Feel free to explore and use these solutions as you wish! Happy coding!
