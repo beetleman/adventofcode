@@ -13,7 +13,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ sbclPackages.qlot-cli sbcl gnumake ];
+          packages = with pkgs; [ sbclPackages.qlot-cli sbcl gnumake ccl ];
         };
       });
     };
