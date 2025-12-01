@@ -9,7 +9,8 @@
   (:import-from #:str)
   (:import-from #:ppcre)
   (:import-from #:trivia #:match)
-  (:local-nicknames (#:test #:parachute))
+  (:local-nicknames (#:test #:parachute)
+                    (#:t #:transducers))
   (:export #:main))
 
 (in-package #:aoc-2025)
