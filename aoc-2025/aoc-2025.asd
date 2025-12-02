@@ -23,4 +23,5 @@
   :serial t
   :components ((:file "src/package")
                (:file "src/day-1")
+               (:file "src/day-2")
                (:file "src/main")))
