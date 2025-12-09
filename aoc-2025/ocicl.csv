@@ -13,6 +13,7 @@ dref-test, ghcr.io/ocicl/mgl-pax-bootstrap@sha256:3139a60412c5b3f8817e251c5a7741
 dref-test-package-inferred, ghcr.io/ocicl/mgl-pax-bootstrap@sha256:3139a60412c5b3f8817e251c5a774149b8b19bfee2dc279833034bddb2480866, mgl-pax-20251022-c1c1edb/dref/test/data/dref-test-package-inferred.asd
 flexi-streams, ghcr.io/ocicl/flexi-streams@sha256:95005b06a8a95c82780c75ead53810bcb273d07fcf5fe76b527f1856df9923f2, flexi-streams-20240503-4951d57/flexi-streams.asd
 flexi-streams-test, ghcr.io/ocicl/flexi-streams@sha256:95005b06a8a95c82780c75ead53810bcb273d07fcf5fe76b527f1856df9923f2, flexi-streams-20240503-4951d57/flexi-streams-test.asd
+for, ghcr.io/ocicl/for@sha256:c19ae065bb740871cf0bdef6287887632afade19f4ece1d032323e3fac73ec01, for-20250813-2442b89/for.asd
 form-fiddle, ghcr.io/ocicl/form-fiddle@sha256:22a1f26a6f0f01df06c42f69f96e624cdeac2e59c76e6815056a0d0ed2ae92c7, form-fiddle-20250813-706c4fa/form-fiddle.asd
 fset, ghcr.io/ocicl/fset@sha256:06ed3b2b8e490fa5ddf01b23af08a5d0d5febf6633b982eab0f721f4cc3c8c15, fset-20251122-19eadf0/fset.asd
 global-vars, ghcr.io/ocicl/global-vars@sha256:d197e871c9c9abc4bf31b1186f5fd28f0ca848ebe2e9dddf2d82ecee01dbdc65, global-vars-20240503-c749f32/global-vars.asd
@@ -20,6 +21,7 @@ global-vars-test, ghcr.io/ocicl/global-vars@sha256:d197e871c9c9abc4bf31b1186f5fd
 introspect-environment, ghcr.io/ocicl/introspect-environment@sha256:4fa482690dee130996f1d0f89b470e0e84c92f22caea7649d3b83ce3e49c78ba, introspect-environment-20240503-69a50ac/introspect-environment.asd
 introspect-environment-test, ghcr.io/ocicl/introspect-environment@sha256:4fa482690dee130996f1d0f89b470e0e84c92f22caea7649d3b83ce3e49c78ba, introspect-environment-20240503-69a50ac/introspect-environment-test.asd
 iterate, ghcr.io/ocicl/iterate@sha256:6950c55e3782d58cabbbb5753111a70d8cafab8348b7fd6f2143d9abeaab46fb, iterate-20250703-d27d7ff/iterate.asd
+lambda-fiddle, ghcr.io/ocicl/lambda-fiddle@sha256:88ecef67401fc5784cacf60e521c9d9592cb22b2a2467864323c2e07e46c96ff, lambda-fiddle-20250813-807ae48/lambda-fiddle.asd
 lisp-namespace, ghcr.io/ocicl/lisp-namespace@sha256:ae08006e0b267958c50160658c729c799c6e1c18d94eef83f2ce5cf6ab8bbd20, lisp-namespace-20240503-699fccb/lisp-namespace.asd
 lisp-namespace.test, ghcr.io/ocicl/lisp-namespace@sha256:ae08006e0b267958c50160658c729c799c6e1c18d94eef83f2ce5cf6ab8bbd20, lisp-namespace-20240503-699fccb/lisp-namespace.test.asd
 mgl-pax, ghcr.io/ocicl/mgl-pax-bootstrap@sha256:3139a60412c5b3f8817e251c5a774149b8b19bfee2dc279833034bddb2480866, mgl-pax-20251022-c1c1edb/mgl-pax.asd

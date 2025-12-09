@@ -19,7 +19,9 @@
                 :serapeum
                 :uiop
                 :trivia
-                :parachute)
+                :parachute
+                :for
+                :iterate)
   :serial t
   :components ((:file "src/package")
                (:file "src/day-1")
@@ -29,4 +31,5 @@
                (:file "src/day-5")
                (:file "src/day-6")
                (:file "src/day-7")
+               (:file "src/day-8")
                (:file "src/main")))

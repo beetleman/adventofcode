@@ -10,7 +10,8 @@
   (:import-from #:ppcre)
   (:import-from #:trivia #:match)
   (:local-nicknames (#:test #:parachute)
-                    (#:t #:transducers))
+                    (#:t #:transducers)
+                    (#:i #:iterate))
   (:export #:main))
 
 (in-package #:aoc-2025)
