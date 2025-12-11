@@ -12,6 +12,7 @@
   :depends-on  (:str
                 :cl-ppcre
                 :fset
+                :fset/iterate
                 :trivia
                 :transducers
                 :transducers/fset
@@ -19,6 +20,7 @@
                 :serapeum
                 :uiop
                 :trivia
+                :trivia.fset
                 :parachute
                 :for
                 :iterate)
@@ -32,4 +34,5 @@
                (:file "src/day-6")
                (:file "src/day-7")
                (:file "src/day-8")
+               (:file "src/day-9")
                (:file "src/main")))

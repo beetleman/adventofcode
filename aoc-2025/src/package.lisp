@@ -8,7 +8,7 @@
   (:use #:cl #:alexandria #:serapeum)
   (:import-from #:str)
   (:import-from #:ppcre)
-  (:import-from #:trivia #:match)
+  (:import-from #:trivia #:match #:let-match)
   (:local-nicknames (#:test #:parachute)
                     (#:t #:transducers)
                     (#:i #:iterate))
