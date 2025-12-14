@@ -1,0 +1,11 @@
+dist ultralisp http://dist.ultralisp.org/
+ultralisp vindarel-cl-str
+ultralisp fosskers-cl-transducers
+ultralisp slburson-fset
+ql alexandria
+ultralisp ruricolist-serapeum
+ultralisp Shinmera-parachute
+ultralisp edicl-cl-ppcre
+ql uiop
+ql flexi-streams
+ql trivial-gray-streams
