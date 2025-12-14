@@ -22,7 +22,6 @@
                 :trivia
                 :trivia.fset
                 :parachute
-                :for
                 :iterate)
   :serial t
   :components ((:file "src/package")

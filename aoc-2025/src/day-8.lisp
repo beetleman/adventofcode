@@ -32,54 +32,52 @@
   0)
 
 (test:define-test+run day-8-1-example-test
-  (test:is = 0
-           (day-8-1 junction-boxes-string)))
+    (test:is = 0
+             (day-8-1 junction-boxes-string)))
 
 (test:define-test+run day-8-1-example-test
-  (let ((junction-boxes-string (uiop:read-file-string "./inputs/day-8.txt")))
-    (test:is = 0
-             (day-8-1 junction-boxes-string))))
+    (let ((junction-boxes-string (uiop:read-file-string "./inputs/day-8.txt")))
+      (test:is = 0
+               (day-8-1 junction-boxes-string))))
 
 (defun day-8-2 (junction-boxes-string)
   )
 
 (test:define-test+run day-8-2-example-test
-  (test:is = 0
-           (day-8-2 junction-boxes-string)))
+    (test:is = 0
+             (day-8-2 junction-boxes-string)))
 
 (test:define-test+run day-8-2-test
-  (let ((junction-boxes-string (uiop:read-file-string "./inputs/day-8.txt")))
-    (test:is = 0
-             (day-8-2 junction-boxes-string))))
+    (let ((junction-boxes-string (uiop:read-file-string "./inputs/day-8.txt")))
+      (test:is = 0
+               (day-8-2 junction-boxes-string))))
 
-(defun euclidean-distance-3d (x y)
-  (sqrt (+ (expt (- (aref x 0)
-                    (aref y 0))
+(defun euclidean-distance-3d (a b)
+  (sqrt (+ (expt (- (fset:@ a :x)
+                    (fset:@ b :x))
                  2)
-           (expt (- (aref x 1)
-                    (aref y 1))
+           (expt (- (fset:@ a :y)
+                    (fset:@ b :y))
                  2)
-           (expt (- (aref x 2)
-                    (aref y 2))
+           (expt (- (fset:@ a :z)
+                    (fset:@ b :z))
                  2))))
+(expt 2 3)
 
-(defun put-in-bucket (buckets data test)
-  (loop :with new-bucket = '()
-        :for bucket :in buckets
-        :for ok = (intersectionp bucket data :test test)
-        :if (not ok)
-          :collect bucket :into new-buckets
-        :else
-          :do (setf new-bucket (union new-bucket bucket :test test))
-        :finally (return (push (if new-bucket
-                                   (union data new-bucket :test test)
-                                   data)
-                               new-buckets))))
+(defun put-in-bucket (buckets data)
+  (i:iter (i:for bucket in buckets)
+          (if (fset:disjoint? bucket data)
+              (i:collect bucket into new-buckets)
+              (i:for new-bucket
+                     first bucket
+                     then (fset:union new-bucket bucket)))
+          (i:finally (return (push (if new-bucket
+                                       (fset:union new-bucket data)
+                                       data)
+                                   new-buckets)))))
 
 (comment
-
-  (time
-   (let ((lines (str:lines "162,817,812
+ (let ((lines (str:lines "162,817,812
 57,618,57
 906,360,560
 592,479,940
@@ -98,54 +96,39 @@
 941,993,340
 862,61,35
 984,92,344
-425,690,689")))
-     (i:iter (i:with boxes = (t:transduce (t:comp (t:map (op (str:match _
-                                                               ((x "," y "," z)  (vect (parse-integer x)
-                                                                                       (parse-integer y)
-                                                                                       (parse-integer z)))))))
-
-                                          #'t:cons
-                                          lines))
-       (i:for box-a in boxes)
-       (i:collect (i:iter (i:for box-b in boxes)
-                    (unless (vector= box-a box-b)
-                      (i:finding (list box-a box-b)
-                                 minimizing (euclidean-distance-3d box-a box-b))))
-         into pairs)
-       (i:finally
-        (return (t:transduce (t:comp (t:map #'length)
-                                     (t:take 3))
-                             #'*
-                             (sort (reduce (lambda (acc p)
-                                             (put-in-bucket acc p #'vector=))
-                                           pairs
-                                           :initial-value '())
-                                   #'> :key #'length)))))))
-
-
-  '(#(162 817 812) #(425 690 689))
-
-
-  (time
+425,690,689"))
+       (size 6))
    (i:iter (i:with boxes = (t:transduce (t:comp (t:map (op (str:match _
-                                                             ((x "," y "," z)  (vect (parse-integer x)
-                                                                                     (parse-integer y)
-                                                                                     (parse-integer z)))))))
+                                                             ((x "," y "," z)
+                                                              (fset:map (:x (parse-integer x))
+                                                                        (:y (parse-integer y))
+                                                                        (:z (parse-integer z))))))))
 
                                         #'t:cons
-                                        #p "inputs/day-8.txt"))
-     (i:for box-a in boxes)
-     (i:collect (i:iter (i:for box-b in boxes)
-                  (unless (vector= box-a box-b)
-                    (i:finding (list box-a box-b)
-                               minimizing (euclidean-distance-3d box-a box-b))))
-       into pairs)
-     (i:finally
-      (return (t:transduce (t:comp (t:map #'length)
-                                   (t:take 3))
-                           #'*
-                           (sort (reduce (lambda (acc p)
-                                           (put-in-bucket acc p #'vector=))
-                                         pairs
-                                         :initial-value '())
-                                 #'> :key #'length)))))))
+                                        lines))
+           (i:for box-a in boxes)
+           (fset/iterate:collect-set (i:iter (i:for box-b in boxes)
+                                             (i:initially (pprint '~~~~~~~~~~~~~~))
+                                             (unless (fset:equal? box-a box-b)
+                                               (i:finding (fset:seq (euclidean-distance-3d box-a box-b) (fset:set box-a box-b))
+                                                          minimizing #'fset:first
+                                                          into x))
+                                             (i:finally
+                                              (pprint (list box-a x))
+                                              (pprint '---------------------)
+                                              (return x)))
+                                     into pairs)
+           (i:finally
+            (comment (pprint
+                      (sort (reduce #'put-in-bucket
+                                    (t:transduce (t:comp (t:map (op (fset:@ _ 1)))
+                                                         (t:take size))
+                                                 #'t:cons
+                                                 (sort (fset:convert 'list pairs)
+                                                       #'< :key #'fset:first))
+                                    :initial-value '())
+                            #'> :key #'fset:size)))
+            (t:transduce #'t:pass
+                         (t:for #'pprint)
+                         (sort (fset:convert 'list pairs)
+                               #'< :key #'fset:first))))))
