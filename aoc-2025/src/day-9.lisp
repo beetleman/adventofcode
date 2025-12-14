@@ -32,22 +32,22 @@
       (i:in outher (i:maximize (rectangle-area tile-a tile-b))))))
 
 (test:define-test+run day-9-1-example-test
-  (test:is = 50
-           (day-9-1 theater-floor-map)))
+    (test:is = 50
+             (day-9-1 theater-floor-map)))
 
 (test:define-test+run day-9-1-example-test
-  (let ((theater-floor-map (uiop:read-file-string "./inputs/day-9.txt")))
-    (test:is = 4777409595
-             (day-9-1 theater-floor-map))))
+    (let ((theater-floor-map (uiop:read-file-string "./inputs/day-9.txt")))
+      (test:is = 4777409595
+               (day-9-1 theater-floor-map))))
 
 (defun day-9-2 (theater-floor-map)
-  )
+  0)
 
 (test:define-test+run day-9-2-example-test
-  (test:is = 0
-           (day-9-2 theater-floor-map)))
+    (test:is = 0
+             (day-9-2 theater-floor-map)))
 
 (test:define-test+run day-9-2-test
-  (let ((theater-floor-map (uiop:read-file-string "./inputs/day-9.txt")))
-    (test:is = 0
-             (day-9-2 theater-floor-map))))
+    (let ((theater-floor-map (uiop:read-file-string "./inputs/day-9.txt")))
+      (test:is = 0
+               (day-9-2 theater-floor-map))))

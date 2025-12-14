@@ -41,7 +41,7 @@
                (day-8-1 junction-boxes-string))))
 
 (defun day-8-2 (junction-boxes-string)
-  )
+  0)
 
 (test:define-test+run day-8-2-example-test
     (test:is = 0
@@ -62,22 +62,21 @@
            (expt (- (fset:@ a :z)
                     (fset:@ b :z))
                  2))))
-(expt 2 3)
 
 (defun put-in-bucket (buckets data)
   (i:iter (i:for bucket in buckets)
-          (if (fset:disjoint? bucket data)
-              (i:collect bucket into new-buckets)
-              (i:for new-bucket
-                     first bucket
-                     then (fset:union new-bucket bucket)))
-          (i:finally (return (push (if new-bucket
-                                       (fset:union new-bucket data)
-                                       data)
-                                   new-buckets)))))
+    (if (fset:disjoint? bucket data)
+        (i:collect bucket into new-buckets)
+        (i:for new-bucket
+               first bucket
+               then (fset:union new-bucket bucket)))
+    (i:finally (return (push (if new-bucket
+                                 (fset:union new-bucket data)
+                                 data)
+                             new-buckets)))))
 
 (comment
- (let ((lines (str:lines "162,817,812
+  (let ((lines (str:lines "162,817,812
 57,618,57
 906,360,560
 592,479,940
@@ -97,38 +96,38 @@
 862,61,35
 984,92,344
 425,690,689"))
-       (size 6))
-   (i:iter (i:with boxes = (t:transduce (t:comp (t:map (op (str:match _
-                                                             ((x "," y "," z)
-                                                              (fset:map (:x (parse-integer x))
-                                                                        (:y (parse-integer y))
-                                                                        (:z (parse-integer z))))))))
+        (size 6))
+    (i:iter (i:with boxes = (t:transduce (t:comp (t:map (op (str:match _
+                                                              ((x "," y "," z)
+                                                               (fset:map (:x (parse-integer x))
+                                                                         (:y (parse-integer y))
+                                                                         (:z (parse-integer z))))))))
 
-                                        #'t:cons
-                                        lines))
-           (i:for box-a in boxes)
-           (fset/iterate:collect-set (i:iter (i:for box-b in boxes)
-                                             (i:initially (pprint '~~~~~~~~~~~~~~))
-                                             (unless (fset:equal? box-a box-b)
-                                               (i:finding (fset:seq (euclidean-distance-3d box-a box-b) (fset:set box-a box-b))
-                                                          minimizing #'fset:first
-                                                          into x))
-                                             (i:finally
-                                              (pprint (list box-a x))
-                                              (pprint '---------------------)
-                                              (return x)))
-                                     into pairs)
-           (i:finally
-            (comment (pprint
-                      (sort (reduce #'put-in-bucket
-                                    (t:transduce (t:comp (t:map (op (fset:@ _ 1)))
-                                                         (t:take size))
-                                                 #'t:cons
-                                                 (sort (fset:convert 'list pairs)
-                                                       #'< :key #'fset:first))
-                                    :initial-value '())
-                            #'> :key #'fset:size)))
-            (t:transduce #'t:pass
-                         (t:for #'pprint)
-                         (sort (fset:convert 'list pairs)
-                               #'< :key #'fset:first))))))
+                                         #'t:cons
+                                         lines))
+      (i:for box-a in boxes)
+      (fset/iterate:collect-set (i:iter (i:for box-b in boxes)
+                                  (i:initially (pprint '~~~~~~~~~~~~~~))
+                                  (unless (fset:equal? box-a box-b)
+                                    (i:finding (fset:seq (euclidean-distance-3d box-a box-b) (fset:set box-a box-b))
+                                               minimizing #'fset:first
+                                               into x))
+                                  (i:finally
+                                   (pprint (list box-a x))
+                                   (pprint '---------------------)
+                                   (return x)))
+                                into pairs)
+      (i:finally
+       (comment (pprint
+                 (sort (reduce #'put-in-bucket
+                               (t:transduce (t:comp (t:map (op (fset:@ _ 1)))
+                                                    (t:take size))
+                                            #'t:cons
+                                            (sort (fset:convert 'list pairs)
+                                                  #'< :key #'fset:first))
+                               :initial-value '())
+                       #'> :key #'fset:size)))
+       (t:transduce #'t:pass
+                    (t:for #'pprint)
+                    (sort (fset:convert 'list pairs)
+                          #'< :key #'fset:first))))))
