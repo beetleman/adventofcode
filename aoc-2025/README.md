@@ -1,5 +1,9 @@
 # Aoc-2025
 
+## Requirements
+- [qlot](https://github.com/fukamachi/qlot)
+- [roswell](https://github.com/roswell/roswell)
+
 ## Running
 
 ```sh
