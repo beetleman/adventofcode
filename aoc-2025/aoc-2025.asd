@@ -35,4 +35,5 @@
                (:file "src/day-8")
                (:file "src/day-9")
                (:file "src/day-10")
+               (:file "src/day-11")
                (:file "src/main")))
