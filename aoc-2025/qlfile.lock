@@ -5,19 +5,19 @@
 ("ultralisp" .
  (:class qlot/source/dist:source-dist
   :initargs (:distribution "https://dist.ultralisp.org/" :%version :latest)
-  :version "20251214110500"))
+  :version "20251229042000"))
 ("vindarel-cl-str" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("fosskers-cl-transducers" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("slburson-fset" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("alexandria" .
  (:class qlot/source/ql:source-ql
   :initargs (:%version :latest)
@@ -25,15 +25,15 @@
 ("ruricolist-serapeum" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("Shinmera-parachute" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("edicl-cl-ppcre" .
  (:class qlot/source/ultralisp:source-ultralisp
   :initargs (:%version :latest)
-  :version "ultralisp-20251214110500"))
+  :version "ultralisp-20251229042000"))
 ("uiop" .
  (:class qlot/source/ql:source-ql
   :initargs (:%version :latest)
